@@ -1,0 +1,1 @@
+..\scc\bin\cc encontra.c -N "Encontra '26" -G icon4.sgx -g icon16.sgx -h 0
