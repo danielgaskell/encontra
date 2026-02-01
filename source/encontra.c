@@ -707,11 +707,11 @@ int list_sel = -1;
 int old_list_sel;
 
 void oom(void) {
-    MsgBox("Out of memory", 0, 0, COLOR_BLACK, BUTTON_OK, 0, 0);
+    MsgBox("Out of memory", 0, 0, COLOR_BLACK, BUTTON_OK, 0, 0, 0);
 }
 
 void ferr(void) {
-    MsgBox("File access error:", pathbuf, 0, COLOR_BLACK, BUTTON_OK, 0, 0);
+    MsgBox("File access error:", pathbuf, 0, COLOR_BLACK, BUTTON_OK, 0, 0, 0);
 }
 
 void release_tab(unsigned char tab) {
