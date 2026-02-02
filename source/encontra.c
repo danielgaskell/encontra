@@ -1115,6 +1115,12 @@ int main(int argc, char *argv[]) {
     unsigned char win, cursor = 0;
     Link* link_ptr;
 
+    // unset high bit of font header if SymbOS <4.1
+    if (_symversion < 41) {
+        font_text[0] &= 0x7F;
+        font_big[0] &= 0x7F;
+    }
+
     // allocate and load splash graphics
     screenmode = (Screen_Colors() == 16 ? 1 : 0);
     if (screenmode) {
