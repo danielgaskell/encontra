@@ -6,7 +6,7 @@ Encontra '26 is an offline Wikipedia browser for [SymbOS](http://symbos.org), in
 
 ## Installation and requirements
 
-Unzip the full [release file](https://github.com/danielgaskell/encontra/releases/download/v1.0/encontra_1.0.zip) to a folder on a mass storage drive and run `ENCONTRA.EXE` from within SymbOS. (You will need a LOT of space for this one--clocking in at 593 MB, Encontra '26 is probably the largest single software package ever released for classic 8-bit platforms!)
+Unzip the full [release file](https://github.com/danielgaskell/encontra/releases/download/v1.0a/encontra_1.0a.zip) to a folder on a mass storage drive and run `ENCONTRA.EXE` from within SymbOS. (You will need a LOT of space for this one--clocking in at 593 MB, Encontra '26 is probably the largest single software package ever released for classic 8-bit platforms!)
 
 * **Operating system**: SymbOS 4.0 or newer
 * **Memory**: at least 256 KB of RAM (320 KB recommended)
