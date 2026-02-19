@@ -1420,38 +1420,64 @@ int main(int argc, char *argv[]) {
 
 		} else {
 		    // hover behavior
-		    x = Mouse_X() - form1.x;
-		    y = Mouse_Y() - form1.y - 8;
-		    if (!on_page) {
-                // page 0 hover
-                if (y >= c_splash1.y && y <= c_splash1.y + c_splash1.h) {
-                    if (x >= c_splash1.x && x <= c_splash1.x + c_splash1.w) {
-                        if (cursor != 1) {
-                            cursor = 1;
-                            c_cursor.x = c_splash1.x + 1;
-                            c_cursor.y = c_splash1.y + 1;
-                            c_cursor.w = 66;
-                            c_cursor.h = 84;
+		    if (winID) {
+                x = Mouse_X() - form1.x;
+                y = Mouse_Y() - form1.y - 8;
+                if (!on_page) {
+                    // page 0 hover
+                    if (y >= c_splash1.y && y <= c_splash1.y + c_splash1.h) {
+                        if (x >= c_splash1.x && x <= c_splash1.x + c_splash1.w) {
+                            if (cursor != 1) {
+                                cursor = 1;
+                                c_cursor.x = c_splash1.x + 1;
+                                c_cursor.y = c_splash1.y + 1;
+                                c_cursor.w = 66;
+                                c_cursor.h = 84;
+                                ctrls.controls = 9;
+                                Win_Redraw(winID, -6, 3);
+                            }
+                        } else if (x >= c_splash2.x && x <= c_splash2.x + c_splash2.w) {
+                            if (cursor != 2) {
+                                cursor = 2;
+                                c_cursor.x = c_splash2.x + 1;
+                                c_cursor.y = c_splash2.y + 13;
+                                c_cursor.w = 66;
+                                c_cursor.h = 84;
+                                ctrls.controls = 9;
+                                Win_Redraw(winID, -6, 3);
+                            }
+                        } else if (x >= c_splash3.x && x <= c_splash3.x + c_splash3.w) {
+                            if (cursor != 3) {
+                                cursor = 3;
+                                c_cursor.x = c_splash3.x + 1;
+                                c_cursor.y = c_splash3.y + 1;
+                                c_cursor.w = 66;
+                                c_cursor.h = 84;
+                                ctrls.controls = 9;
+                                Win_Redraw(winID, -6, 3);
+                            }
+                        } else if (cursor) {
+                            cursor = 0;
+                            ctrls.controls = 8;
+                            Win_Redraw(winID, -5, 3);
+                        }
+                    } else if (x >= c_splash4.x && x <= c_splash4.x + c_splash4.w && y >= c_splash4.y && y <= c_splash4.y + c_splash4.h) {
+                        if (cursor != 4) {
+                            cursor = 4;
+                            c_cursor.x = c_splash4.x;
+                            c_cursor.y = c_splash4.y;
+                            c_cursor.w = 24;
+                            c_cursor.h = 11;
                             ctrls.controls = 9;
                             Win_Redraw(winID, -6, 3);
                         }
-                    } else if (x >= c_splash2.x && x <= c_splash2.x + c_splash2.w) {
-                        if (cursor != 2) {
-                            cursor = 2;
-                            c_cursor.x = c_splash2.x + 1;
-                            c_cursor.y = c_splash2.y + 13;
-                            c_cursor.w = 66;
-                            c_cursor.h = 84;
-                            ctrls.controls = 9;
-                            Win_Redraw(winID, -6, 3);
-                        }
-                    } else if (x >= c_splash3.x && x <= c_splash3.x + c_splash3.w) {
-                        if (cursor != 3) {
-                            cursor = 3;
-                            c_cursor.x = c_splash3.x + 1;
-                            c_cursor.y = c_splash3.y + 1;
-                            c_cursor.w = 66;
-                            c_cursor.h = 84;
+                    } else if (x >= c_splash5.x && x <= c_splash5.x + c_splash5.w && y >= c_splash5.y && y <= c_splash5.y + c_splash5.h) {
+                        if (cursor != 5) {
+                            cursor = 5;
+                            c_cursor.x = c_splash5.x;
+                            c_cursor.y = c_splash5.y;
+                            c_cursor.w = 28;
+                            c_cursor.h = 11;
                             ctrls.controls = 9;
                             Win_Redraw(winID, -6, 3);
                         }
@@ -1460,58 +1486,34 @@ int main(int argc, char *argv[]) {
                         ctrls.controls = 8;
                         Win_Redraw(winID, -5, 3);
                     }
-                } else if (x >= c_splash4.x && x <= c_splash4.x + c_splash4.w && y >= c_splash4.y && y <= c_splash4.y + c_splash4.h) {
-                    if (cursor != 4) {
-                        cursor = 4;
-                        c_cursor.x = c_splash4.x;
-                        c_cursor.y = c_splash4.y;
-                        c_cursor.w = 24;
-                        c_cursor.h = 11;
-                        ctrls.controls = 9;
-                        Win_Redraw(winID, -6, 3);
-                    }
-                } else if (x >= c_splash5.x && x <= c_splash5.x + c_splash5.w && y >= c_splash5.y && y <= c_splash5.y + c_splash5.h) {
-                    if (cursor != 5) {
-                        cursor = 5;
-                        c_cursor.x = c_splash5.x;
-                        c_cursor.y = c_splash5.y;
-                        c_cursor.w = 28;
-                        c_cursor.h = 11;
-                        ctrls.controls = 9;
-                        Win_Redraw(winID, -6, 3);
-                    }
-                } else if (cursor) {
-                    cursor = 0;
-                    ctrls.controls = 8;
-                    Win_Redraw(winID, -5, 3);
-                }
 
-		    } else {
-		        // other page hover
-                for (i = 0; ; ++i) {
-                    if (i == 5) {
-                        if (cursor) {
-                            cursor = 0;
-                            ctrls1.controls = 2;
-                            Win_Redraw_Area(winID, -2, 0, c1_hover.x, c1_hover.y, c1_hover.w, c1_hover.h);
+                } else {
+                    // other page hover
+                    for (i = 0; ; ++i) {
+                        if (i == 5) {
+                            if (cursor) {
+                                cursor = 0;
+                                ctrls1.controls = 2;
+                                Win_Redraw_Area(winID, -2, 0, c1_hover.x, c1_hover.y, c1_hover.w, c1_hover.h);
+                            }
+                            break;
                         }
-                        break;
-                    }
-                    if (x >= hover_coords[on_page-1][i][0] && y >= hover_coords[on_page-1][i][1] &&
-                        x <= hover_coords[on_page-1][i][2] && y <= hover_coords[on_page-1][i][3]) {
-                        if (cursor != i + 1) {
-                            c1_hover.x = hover_xy[on_page-1][i][0];
-                            c1_hover.y = hover_xy[on_page-1][i][1];
-                            c1_hover.w = hover_xy[on_page-1][i][2];
-                            c1_hover.h = hover_xy[on_page-1][i][3];
-                            ctrls1.controls = 3;
-                            c1_hover.param = (unsigned short)(gfx_hover_addr + hover_offsets[screenmode][on_page-1][i]);
-                            if (screenmode)
-                                link_gfx_header(&c1_hover);
-                            Win_Redraw(winID, cursor ? -1 : 2, 0);
-                            cursor = i + 1;
+                        if (x >= hover_coords[on_page-1][i][0] && y >= hover_coords[on_page-1][i][1] &&
+                            x <= hover_coords[on_page-1][i][2] && y <= hover_coords[on_page-1][i][3]) {
+                            if (cursor != i + 1) {
+                                c1_hover.x = hover_xy[on_page-1][i][0];
+                                c1_hover.y = hover_xy[on_page-1][i][1];
+                                c1_hover.w = hover_xy[on_page-1][i][2];
+                                c1_hover.h = hover_xy[on_page-1][i][3];
+                                ctrls1.controls = 3;
+                                c1_hover.param = (unsigned short)(gfx_hover_addr + hover_offsets[screenmode][on_page-1][i]);
+                                if (screenmode)
+                                    link_gfx_header(&c1_hover);
+                                Win_Redraw(winID, cursor ? -1 : 2, 0);
+                                cursor = i + 1;
+                            }
+                            break;
                         }
-                        break;
                     }
                 }
 		    }
